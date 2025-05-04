@@ -47,7 +47,7 @@ window.onclick = function(event){
         SelectorState = 1;
     if(event.clientX >= 785 && event.clientX <= 1056 && event.clientY >= 688 && event.clientY <= 759)
         SelectorState = 2;
-    if(SelectorState<=0)
+        if(SelectorState<=0)
         SelectorState = buttonSelector.length
     ButtonTarget = buttonSelector[SelectorState%buttonSelector.length]
 }

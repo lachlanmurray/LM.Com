@@ -6,6 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    background-color: black;
 }
 
 #renderCanvas {
@@ -38,19 +39,18 @@ body {
 }
 .RightProfileLinks{
     position: absolute;
-    left:93vw;
-    padding-top: 33vh;
-    width:7vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left:95vw;
+    width:5vw;
+    min-width: 64px;
     height:100vh;
     background-color: black;
 }
-.LeftProfileLinks{
-    position: absolute;
-    left:93vw;
-    padding-top: 33vh;
-    width:7vw;
-    height:100vh;
-    background-color: red;
+.RightProfileLinks>a{
+    min-width: 115px;
 }
 
 .controlHint{
@@ -67,12 +67,55 @@ body {
 }
 .linkLogo{
    padding: 20%;
+   margin-left: -0.5vw;
    width: 4vw;
    height: 4vw;
 }
-.PortraitFail{
+@media only screen and (max-width: 1279px) {
+    .linkLogo {
+        margin-left: 0.7vw;
+    }
+  }
+@media only screen and (max-width: 1920px) {
+.linkLogo {
+    margin-left: 0.5vw;
+}
+}
+.MobileBlock{
+    position: absolute;
     width: 100vw;
     height: 100vh;
     background-color: black;
     visibility: visible;
+}
+.Desktop{
+    visibility: hidden;
+    width:0px;
+    height:0px;
+    margin: 0px;
+}
+.MobileContent{
+    background-color: black;
+    color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 7vw;
+    padding-left: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.MobileLinks {
+    position: absolute;
+    height: 100vh;
+    left:80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
 }

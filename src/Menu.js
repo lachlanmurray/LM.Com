@@ -1,8 +1,8 @@
 MenuYpos = 575;
 buttons = {
-    "About":{"drawFunction":AboutMeContent,"selectorYPos":MenuYpos-125, "SelectorXLength":420},
-    "Work":{"drawFunction":WorkContent,"selectorYPos":MenuYpos+80, "SelectorXLength":330},
-    "Projects":{"drawFunction":ProjectContent,"selectorYPos":MenuYpos+280, "SelectorXLength":620},
+    "About":{"drawFunction":AboutMeContent,"selectorYPos":-125, "SelectorXLength":425},
+    "Work":{"drawFunction":WorkContent,"selectorYPos":80, "SelectorXLength":330},
+    "Projects":{"drawFunction":ProjectContent,"selectorYPos":280, "SelectorXLength":620},
 }
 buttonSelector = ["About","Work","Projects"];
 SelectorState = buttonSelector.length;
@@ -37,13 +37,13 @@ function LerpSelector()
             LerpStartTime = time;
         }
 
-        selBoxYPos = lerp(selBoxYPos,buttons[ButtonTarget].selectorYPos,time-LerpStartTime,lerpTransitionTime)
+        selBoxYPos = lerp(selBoxYPos,MenuYpos+buttons[ButtonTarget].selectorYPos,time-LerpStartTime,lerpTransitionTime)
         selBoxXLen = lerp(selBoxXLen,buttons[ButtonTarget].SelectorXLength,time-LerpStartTime,lerpTransitionTime)
 
         if(time-LerpStartTime>=lerpTransitionTime)
         {
             lerping = false;
-            selBoxYPos = buttons[ButtonTarget].selectorYPos;
+            selBoxYPos = MenuYpos + buttons[ButtonTarget].selectorYPos;
             selBoxXLen = buttons[ButtonTarget].SelectorXLength;
         }
     }
@@ -56,23 +56,23 @@ function AboutMeContent()
     ctx.strokeStyle = screenComplement.toHexString();
     ctx.fillStyle = screenComplement.toHexString();
     ctx.beginPath();
-    ctx.arc(1585, 500, 310, 0, 2 * Math.PI);
+    ctx.arc(1685, 500, 310, 0, 2 * Math.PI);
     ctx.lineWidth = 20;
     ctx.stroke();
     if(ctx.drawImage)
-        ctx.drawImage(images[0], 1285, 200, 600, 600);
+        ctx.drawImage(images[0], 1385, 200, 600, 600);
 
-    ctx.fillRect(1120,860,900,330)
+    ctx.fillRect(1220,860,900,330)
     ctx.fillStyle = screenColor.toHexString();
-    ctx.fillRect(1580,900,10,260)
+    ctx.fillRect(1680,900,10,260)
     
     ctx.fillStyle = "#000000"
     ctx.font = "75px monospace";
-    ctx.fillText(`Game`,1260,1000)      // HTML5 canvas filltext doesnt accept line breaks :(
-    ctx.fillText(`Developer`,1160,1090)
-    ctx.fillText(`Cyber`,1690,950)      
-    ctx.fillText(`Security`,1640,1040)      
-    ctx.fillText(`Analyst`,1665,1130)
+    ctx.fillText(`Game`,1360,1000)      // HTML5 canvas filltext doesnt accept line breaks :(
+    ctx.fillText(`Developer`,1260,1090)
+    ctx.fillText(`Cyber`,1790,950)      
+    ctx.fillText(`Security`,1740,1040)      
+    ctx.fillText(`Analyst`,1765,1130)
 }
 
 function WorkContent()
@@ -136,7 +136,8 @@ function ProjectContent()
 
     // background boxes
     ctx.fillRect(880,180,570,110)
-    ctx.fillRect(880,300,380,60)
+    ctx.fillRect(880,300,520,60)
+    ctx.fillRect(880,370,380,60)
 
     ctx.fillRect(880,580,750,110)
     ctx.fillRect(880,700,550,60)
@@ -152,7 +153,8 @@ function ProjectContent()
 
     ctx.fillStyle = "#000000"
     ctx.font = "bold 45px monospace";
-    ctx.fillText(`Upcoming, 2025`,900,345)
+    ctx.fillText(`Aberrate Team, 2025`,900,345)
+    ctx.fillText(`Upcoming, 2025`,900,415)
     ctx.fillText(`"Re-Entry" Jam, 2024`,900,745)
     ctx.fillText(`"Revive" Jame 2023`,900,1145)
 }
